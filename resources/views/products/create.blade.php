@@ -7,12 +7,12 @@
     <title>Create Product</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800 min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+<body class="bg-gradient-to-br from-slate-50 to-slate-100 min-h-screen py-12 px-4 sm:px-6 lg:px-8">
     <div class="max-w-2xl mx-auto">
         <!-- Header -->
         <div class="mb-8">
-            <h1 class="text-4xl font-bold text-slate-900 dark:text-white">Create New Product</h1>
-            <p class="text-slate-600 dark:text-slate-400 mt-2">Add a new product to your inventory</p>
+            <h1 class="text-4xl font-bold text-slate-900">Create New Product</h1>
+            <p class="text-slate-600 mt-2">Add a new product to your inventory</p>
         </div>
 
         <!-- Error Messages -->
@@ -35,15 +35,15 @@
         @endif
 
         <!-- Form Card -->
-        <div class="bg-white dark:bg-slate-800 rounded-lg shadow-lg p-8">
-            <form method="post" action="{{route('product.store')}}" class="space-y-6">
+        <div class="bg-white rounded-lg shadow-lg p-8">
+            <form method="post" action="{{route('products.store')}}" class="space-y-6">
                 @csrf
                 @method('post')
 
                 <!-- Product Name -->
                 <div>
-                    <label for="name" class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Product Name</label>
-                    <input type="text" id="name" name="name" placeholder="Enter product name" value="{{ old('name') }}" class="w-full px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-slate-700 dark:text-white transition-all duration-200 @error('name') border-red-500 @enderror" required />
+                    <label for="name" class="block text-sm font-semibold text-slate-700 mb-2">Product Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter product name" value="{{ old('name') }}" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 @error('name') border-red-500 @enderror" required />
                     @error('name')
                         <p class="mt-1 text-sm text-red-500 font-medium">{{ $message }}</p>
                     @enderror
@@ -51,8 +51,8 @@
 
                 <!-- Quantity -->
                 <div>
-                    <label for="qty" class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Quantity</label>
-                    <input type="number" id="qty" name="qty" placeholder="Enter quantity" value="{{ old('qty') }}" class="w-full px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-slate-700 dark:text-white transition-all duration-200 @error('qty') border-red-500 @enderror" required />
+                    <label for="qty" class="block text-sm font-semibold text-slate-700 mb-2">Quantity</label>
+                    <input type="number" id="qty" name="qty" placeholder="Enter quantity" value="{{ old('qty') }}" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 @error('qty') border-red-500 @enderror" required />
                     @error('qty')
                         <p class="mt-1 text-sm text-red-500 font-medium">{{ $message }}</p>
                     @enderror
@@ -60,10 +60,10 @@
 
                 <!-- Price -->
                 <div>
-                    <label for="price" class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Price</label>
+                    <label for="price" class="block text-sm font-semibold text-slate-700 mb-2">Price</label>
                     <div class="relative">
-                        <span class="absolute left-4 top-2 text-slate-500 dark:text-slate-400 font-semibold">$</span>
-                        <input type="number" id="price" name="price" placeholder="0.00" step="0.01" value="{{ old('price') }}" class="w-full pl-8 pr-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-slate-700 dark:text-white transition-all duration-200 @error('price') border-red-500 @enderror" required />
+                        <span class="absolute left-4 top-2 text-slate-500 font-semibold">$</span>
+                        <input type="number" id="price" name="price" placeholder="0.00" step="0.01" value="{{ old('price') }}" class="w-full pl-8 pr-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 @error('price') border-red-500 @enderror" required />
                     </div>
                     @error('price')
                         <p class="mt-1 text-sm text-red-500 font-medium">{{ $message }}</p>
@@ -72,8 +72,8 @@
 
                 <!-- Description -->
                 <div>
-                    <label for="description" class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Description</label>
-                    <textarea id="description" name="description" placeholder="Enter product description" rows="4" class="w-full px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-slate-700 dark:text-white resize-none transition-all duration-200 @error('description') border-red-500 @enderror" required>{{ old('description') }}</textarea>
+                    <label for="description" class="block text-sm font-semibold text-slate-700 mb-2">Description</label>
+                    <textarea id="description" name="description" placeholder="Enter product description" rows="4" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none transition-all duration-200 @error('description') border-red-500 @enderror" required>{{ old('description') }}</textarea>
                     @error('description')
                         <p class="mt-1 text-sm text-red-500 font-medium">{{ $message }}</p>
                     @enderror
@@ -87,7 +87,7 @@
                         </svg>
                         Create Product
                     </button>
-                    <a href="{{route('product.index')}}" class="flex-1 px-6 py-3 bg-slate-300 dark:bg-slate-700 hover:bg-slate-400 dark:hover:bg-slate-600 text-slate-900 dark:text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-200">
+                    <a href="{{route('products.index')}}" class="flex-1 px-6 py-3 bg-slate-300 hover:bg-slate-400 text-slate-900 font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-200">
                         <svg class="w-5 h-5 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                         </svg>
